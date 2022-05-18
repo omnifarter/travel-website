@@ -4,10 +4,10 @@ import Header from "./Header";
 import Indicators from "./Indicators";
 
 interface CarouselProps {
-    
+    hideSticky:boolean
 }
  
-const Carousel: FunctionComponent<CarouselProps> = () => {
+const Carousel: FunctionComponent<CarouselProps> = (props:CarouselProps) => {
     const [selected, setSelected] = useState('1')
     const ref = useRef(null)
     const onClickIndicator = (abbr:string) => {
@@ -50,8 +50,8 @@ const Carousel: FunctionComponent<CarouselProps> = () => {
                 <section className={`bg-cover bg-center bg-no-repeat w-screen h-screen snap-start`} style={{backgroundImage:`url('https://storage.googleapis.com/france-travel/day${i.abbr}/thumbnail.jpg')`}} />
             ))
         }
-        <Header text={data[parseInt(selected) - 1].full} />
-        <Indicators data={data} onClickIndicator={onClickIndicator} selected={selected} />
+        {!props.hideSticky && <Header text={data[parseInt(selected) - 1].full} />}
+        {!props.hideSticky && <Indicators data={data} onClickIndicator={onClickIndicator} selected={selected} />}
         </div>
 );
 }
