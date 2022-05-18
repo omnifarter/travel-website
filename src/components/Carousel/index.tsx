@@ -1,5 +1,5 @@
 import { url } from "inspector";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useRef, useState } from "react";
 import Indicators from "./Indicators";
 
 interface CarouselProps {
@@ -8,9 +8,10 @@ interface CarouselProps {
  
 const Carousel: FunctionComponent<CarouselProps> = () => {
     const [selected, setSelected] = useState('1')
+    const ref = useRef(null)
     const onClickIndicator = (abbr:string) => {
         setSelected(abbr)
-        
+        scrollTo(parseInt(abbr))
     }
     const data = [
         {abbr:'1',full:'Paris'},
@@ -27,11 +28,30 @@ const Carousel: FunctionComponent<CarouselProps> = () => {
         {abbr:'12',full:'Charmonix'},
         {abbr:'13',full:'Italy and Nice'}
         ]
-        //TODO: clean this up
+
+    const onScroll = (evt:any) => {
+        let diff = evt.target.scrollHeight - evt.target.scrollTop
+        if(diff % evt.target.clientHeight == 0){
+            // fully scrolled
+            let index = data.length - (diff / evt.target.clientHeight)
+            setSelected(index.toString())
+        }
+    }
+
+    const scrollTo = (index:Number) => {
+        
+        //@ts-ignore
+        ref.current.scroll({top:ref.current.clientHeight * index,left:0,behavior:'smooth'})
+    }
     return (        
-    <div className={`bg-cover bg-center bg-no-repeat w-full h-full`} style={{backgroundImage:`url('https://storage.googleapis.com/france-travel/day${selected}/thumbnail.jpg')`}}>
+        <div ref={ref} className="h-full snap-y snap-mandatory overflow-y-scroll snap-always scroll-smooth" onScroll={onScroll}>
+        {
+            data.map((i)=>(
+                <section className={`bg-cover bg-center bg-no-repeat w-screen h-screen snap-start`} style={{backgroundImage:`url('https://storage.googleapis.com/france-travel/day${i.abbr}/thumbnail.jpg')`}} />
+            ))
+        }
         <Indicators data={data} onClickIndicator={onClickIndicator} selected={selected} />
-    </div>
+        </div>
 );
 }
  
