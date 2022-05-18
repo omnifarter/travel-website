@@ -32,7 +32,7 @@ const Indicator = (props: IndicatorProps) => {
 const Indicators: FunctionComponent<IndicatorsProps> = (props:IndicatorsProps) => {
 
     return (
-        <div className='flex flex-col w-8 z-10 fixed bg-slate-600/50 rounded-3xl top-2 left-4 h-fit'>
+        <div className='flex flex-col w-8 z-10 fixed bg-slate-600/50 rounded-3xl top-6 left-6 h-fit'>
             {
                 props.data.map(i => <Indicator key={i.abbr} {...i} onClickIndicator={props.onClickIndicator} isSelected={props.selected === i.abbr}/>)
             }

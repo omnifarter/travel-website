@@ -1,5 +1,6 @@
 import { url } from "inspector";
 import { FunctionComponent, useRef, useState } from "react";
+import Header from "./Header";
 import Indicators from "./Indicators";
 
 interface CarouselProps {
@@ -18,7 +19,7 @@ const Carousel: FunctionComponent<CarouselProps> = () => {
         {abbr:'3',full:'Paris and Tours'},
         {abbr:'4',full:'Tours and Bordeaux'},
         {abbr:'5',full:'Bordeaux'},
-        {abbr:'6',full:'Arcachon Bay and Cape Farret'},
+        {abbr:'6',full:'Arcachon Bay and Cap Ferret'},
         {abbr:'7',full:'Arcachon Bay'},
         {abbr:'8',full:'Dordogne Valley'},
         {abbr:'9',full:'Clermont-Ferrand'},
@@ -49,6 +50,7 @@ const Carousel: FunctionComponent<CarouselProps> = () => {
                 <section className={`bg-cover bg-center bg-no-repeat w-screen h-screen snap-start`} style={{backgroundImage:`url('https://storage.googleapis.com/france-travel/day${i.abbr}/thumbnail.jpg')`}} />
             ))
         }
+        <Header text={data[parseInt(selected) - 1].full} />
         <Indicators data={data} onClickIndicator={onClickIndicator} selected={selected} />
         </div>
 );
