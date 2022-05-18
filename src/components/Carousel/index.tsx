@@ -39,7 +39,6 @@ const Carousel: FunctionComponent<CarouselProps> = (props:CarouselProps) => {
     }
 
     const scrollTo = (index:Number) => {
-        
         //@ts-ignore
         ref.current.scroll({top:ref.current.clientHeight * (index - 1),left:0,behavior:'smooth'})
     }
@@ -47,7 +46,7 @@ const Carousel: FunctionComponent<CarouselProps> = (props:CarouselProps) => {
         <div ref={ref} className="h-full snap-y snap-mandatory overflow-y-scroll snap-always scroll-smooth" onScroll={onScroll}>
         {
             data.map((i)=>(
-                <section className={`bg-cover bg-center bg-no-repeat w-screen h-screen snap-start`} style={{backgroundImage:`url('https://storage.googleapis.com/france-travel/day${i.abbr}/thumbnail.jpg')`}} />
+                <section key={i.abbr} className={`bg-cover bg-center bg-no-repeat w-screen h-screen snap-start`} style={{backgroundImage:`url('https://storage.googleapis.com/france-travel/day${i.abbr}/thumbnail.jpg')`}} />
             ))
         }
         {!props.hideSticky && <Header text={data[parseInt(selected) - 1].full} />}
