@@ -10,7 +10,6 @@ const Carousel: FunctionComponent<CarouselProps> = () => {
     const [selected, setSelected] = useState('1')
     const ref = useRef(null)
     const onClickIndicator = (abbr:string) => {
-        setSelected(abbr)
         scrollTo(parseInt(abbr))
     }
     const data = [
@@ -34,14 +33,14 @@ const Carousel: FunctionComponent<CarouselProps> = () => {
         if(diff % evt.target.clientHeight == 0){
             // fully scrolled
             let index = data.length - (diff / evt.target.clientHeight)
-            setSelected(index.toString())
+            setSelected((index + 1).toString())
         }
     }
 
     const scrollTo = (index:Number) => {
         
         //@ts-ignore
-        ref.current.scroll({top:ref.current.clientHeight * index,left:0,behavior:'smooth'})
+        ref.current.scroll({top:ref.current.clientHeight * (index - 1),left:0,behavior:'smooth'})
     }
     return (        
         <div ref={ref} className="h-full snap-y snap-mandatory overflow-y-scroll snap-always scroll-smooth" onScroll={onScroll}>
