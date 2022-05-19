@@ -14,19 +14,19 @@ const Carousel: FunctionComponent<CarouselProps> = (props:CarouselProps) => {
         scrollTo(parseInt(abbr))
     }
     const data = [
-        {abbr:'1',full:'Paris'},
-        {abbr:'2',full:'Reims'},
-        {abbr:'3',full:'Paris and Tours'},
-        {abbr:'4',full:'Tours and Bordeaux'},
-        {abbr:'5',full:'Bordeaux'},
-        {abbr:'6',full:'Arcachon Bay and Cap Ferret'},
-        {abbr:'7',full:'Arcachon Bay'},
-        {abbr:'8',full:'Dordogne Valley'},
-        {abbr:'9',full:'Clermont-Ferrand'},
-        {abbr:'10',full:'Annecy'},
-        {abbr:'11',full:'Annecy and Charmonix'},
-        {abbr:'12',full:'Charmonix'},
-        {abbr:'13',full:'Italy and Nice'}
+        {abbr:'1',full:'Paris',location:'https://goo.gl/maps/KGBxaQhYWKLUSjMG8'},
+        {abbr:'2',full:'Reims',location:'https://goo.gl/maps/AByBVGQkYesRMxFm7'},
+        {abbr:'3',full:'Paris and Tours',location:'https://goo.gl/maps/KGBxaQhYWKLUSjMG8'},
+        {abbr:'4',full:'Tours and Bordeaux', location:'https://goo.gl/maps/JJbwAUStqdAouhSb8'},
+        {abbr:'5',full:'Bordeaux', location: 'https://goo.gl/maps/gdybCmcbZdh2FLoK6'},
+        {abbr:'6',full:'Arcachon Bay and Cap Ferret', location:'https://goo.gl/maps/3fmvz2pDCNCWbB8J7'},
+        {abbr:'7',full:'Arcachon Bay', location:'https://goo.gl/maps/NcVJjt8nETw58uBR7'},
+        {abbr:'8',full:'Dordogne Valley', location:'https://g.page/gouffrepadirac?share'},
+        {abbr:'9',full:'Clermont-Ferrand', location:'https://goo.gl/maps/in5qDZp5zPM5Ss1TA'},
+        {abbr:'10',full:'Annecy', location:'https://goo.gl/maps/sG7z4gfEsVn57X8W7'},
+        {abbr:'11',full:'Annecy and Charmonix', location:'https://goo.gl/maps/sG7z4gfEsVn57X8W7'},
+        {abbr:'12',full:'Charmonix',location:'https://goo.gl/maps/okJXJojk1KsNKWSt9'},
+        {abbr:'13',full:'Italy and Nice', location:'https://goo.gl/maps/C7hrBmyamKcX79im7'}
         ]
 
     const onScroll = (evt:any) => {
@@ -49,7 +49,7 @@ const Carousel: FunctionComponent<CarouselProps> = (props:CarouselProps) => {
                 <section key={i.abbr} className={`bg-cover bg-center bg-no-repeat w-screen h-screen snap-start`} style={{backgroundImage:`url('https://storage.googleapis.com/france-travel/day${i.abbr}/thumbnail.jpg')`}} />
             ))
         }
-        {!props.hideSticky && <Header text={data[parseInt(selected) - 1].full} />}
+        {!props.hideSticky && <Header text={data[parseInt(selected) - 1].full} location={data[parseInt(selected) - 1].location} />}
         {!props.hideSticky && <Indicators data={data} onClickIndicator={onClickIndicator} selected={selected} />}
         </div>
 );
