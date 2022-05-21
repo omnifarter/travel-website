@@ -48,13 +48,13 @@ const Home: FunctionComponent<HomeProps> = () => {
         <>
         <MediaQueryWithLoader maxWidth={768} loading={loading}>
             <div className='h-full'>
-                <div className={`${!overlay ? "hidden" : "block"} bg-slate-800 w-full min-h-screen p-5 z-50`}>
+                <div className={`${!overlay ? "hidden opacity-0 bg-transparent" : "block opacity-100 bg-slate-800"}  w-full min-h-screen p-5 z-50 animate-fadein`}>
                     <button className='flex bg-slate-600 text-white text-xl rounded-3xl py-2 px-4 mb-8' onClick={hideOverlay}><FaArrowLeft className='mt-1 mr-2' /> Back</button>
                     <Card className='mb-8' >
                         <h1 className='text-white text-3xl mb-4'>{data[parseInt(selected) -1].full}</h1>
                         <h1 className='text-white text-lg'>{data[parseInt(selected) -1].description}</h1>
                     </Card>
-                    <PhotoCollage day={selected} />
+                    <PhotoCollage day={selected} isMobile={true} />
 
                 </div>
                 <Carousel hideSticky={loading || overlay} onClick={showOverlay} selected={selected} setSelected={setSelected} />
@@ -69,7 +69,7 @@ const Home: FunctionComponent<HomeProps> = () => {
                         <h1 className='text-white text-3xl mb-4'>{data[parseInt(selected) -1].full}</h1>
                         <h1 className='text-white text-lg'>{data[parseInt(selected) -1].description}</h1>
                     </Card>
-                    <PhotoCollage day={selected} />
+                    <PhotoCollage day={selected} isMobile={false} />
                 </div>
                 <div className='flex w-1/2'>
                     <iframe

@@ -5,15 +5,9 @@ import { importImages } from "../../helpers/data";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Modal from 'react-modal';
 
-const settings = {
-    width: "600px",
-    height: ["250px", "170px"],
-    layout: [1, 3, 2],
-    showNumOfRemainingPhotos: true
-  };
-
   interface PhotoCollageProps {
       day:string
+      isMobile:boolean
   }
    
   const PhotoCollage: FunctionComponent<PhotoCollageProps> = (props:PhotoCollageProps) => {
@@ -54,13 +48,28 @@ const settings = {
               </div>
             </div>
             <Modal
+                closeTimeoutMS={200}
                 ariaHideApp={false}
                 isOpen={open}
                 onRequestClose={requestClose}
-                style={{content:{backgroundColor:'rgba(0, 0, 0)',border:0,overflow:'hidden'},overlay:{backgroundColor:'rgba(0, 0, 0, 0.5)'}}}
+                style={{
+                  content:{
+                    backgroundColor:'rgba(0, 0, 0)',
+                    borderRadius:'1rem',
+                    border:0,
+                    overflow:'hidden',
+                    top: props.isMobile ? '16px' : '80px',
+                    left: props.isMobile ? '16px' : '80px',
+                    right: props.isMobile ? '16px' : '80px',
+                    bottom: props.isMobile ? '16px' : '80px',              
+                  },
+                  overlay:{
+                    backgroundColor:'rgba(0, 0, 0, 0.5)'
+                  }
+                }}
             >
             {photos.length!=0 &&<Carousel showThumbs={false} showStatus={false} selectedItem={selected}>
-              {photos.map((photo,i)=> <div className='h-[87vh] w-auto bg-transparent' key={i}><img className="h-full object-scale-down" src={photo.source} /></div>)}
+              {photos.map((photo,i)=> <div className={`h-[80vh] w-auto bg-transparent`} key={i}><img className="h-full object-scale-down" src={photo.source} /></div>)}
               </Carousel>
             }
             </Modal>

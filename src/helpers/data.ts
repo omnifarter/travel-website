@@ -27,7 +27,12 @@ export const importThumbnail = (day:string):string[] => {
     let images:any[] = [];
     let r = require.context(`../assets/images`, true)
     let rFilter = r.keys().filter((value)=>value.toString().includes(`thumbnail`))
+    rFilter.sort((a,b)=>{
+        //@ts-ignore
+        return (parseInt(a.match(/(\d+)/)[0]) < parseInt(b.match(/(\d+)/)[0]) ? -1 : 1)
+    })
     rFilter.map((item, index) => { images.push(r(item)); });
-
+    console.log(images)
+    // images.sort((a,b)=>)
     return images;
 }
