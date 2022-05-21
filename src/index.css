@@ -14,8 +14,16 @@ code {
     monospace;
 }
 
+@media only screen and (min-width: 768px) {
+  html, body, #root, #root>div {
+    min-height: 100% !important;
+    height: 100% !important;
+    overflow: auto !important;
+  }
+}
+
 html, body, #root, #root>div {
-  min-height: 100vh;
-  height: auto;
+  height: 100%;
   width: 100%;
+  overflow: hidden;
 }

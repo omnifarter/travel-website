@@ -63,13 +63,22 @@ const Home: FunctionComponent<HomeProps> = () => {
         <MediaQueryWithLoader minWidth={768} loading={loading}>
             <div className='flex flex-col p-8'>
                 <Indicators data={data} selected={selected} onClickIndicator={onClickIndicator} horizontal />
-                <div className='w-1/2 mt-8'>
+                <div className='flex flex-row'>
+                <div className='flex flex-col w-1/2 mt-8'>
                     <Card className='mb-8' >
                         <h1 className='text-white text-3xl mb-4'>{data[parseInt(selected) -1].full}</h1>
                         <h1 className='text-white text-lg'>{data[parseInt(selected) -1].description}</h1>
                     </Card>
                     <PhotoCollage day={selected} />
                 </div>
+                <div className='flex w-1/2'>
+                    <iframe
+                    className='w-full h-full ml-8 mt-8 pb-8'
+                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDvchTjo4sE10PI_y074T5grDx-a9HCtKE&q=${data[parseInt(selected) -1].locationQuery}`}>
+                    </iframe>
+                </div>
+                </div>
+
             </div>
         </MediaQueryWithLoader>
         </>
