@@ -2,6 +2,12 @@ import { FunctionComponent, useEffect, useRef, useState } from "react";
 import Mapbox, { Layer, MapRef, Popup, Source } from 'react-map-gl';
 import { mapboxInitialViewState } from "../../helpers/data";
 import features from '../../assets/features.json';
+import mapboxgl from 'mapbox-gl';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker'; // Load worker code separately with worker-loader
+//@ts-ignore
+mapboxgl.workerClass = MapboxWorker; // Wire up loaded worker to be used instead of the default
+
 interface MapProps {
     loading:boolean
     day:string
