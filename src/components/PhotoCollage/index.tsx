@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { data, importImages } from "../../helpers/data";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Modal from 'react-modal';
+import {IoMdClose} from "react-icons/io"
 
   interface PhotoCollageProps {
       day:string
@@ -71,7 +72,12 @@ import Modal from 'react-modal';
                   }
                 }}
             >
-            {photos.length!=0 &&<Carousel showThumbs={false} showStatus={false} selectedItem={selected}>
+            <IoMdClose className='absolute right-5 z-50' size="48px" fill='white' onClick={requestClose} />
+            {photos.length!=0 &&<Carousel 
+            showThumbs={false} 
+            showStatus={false}
+            selectedItem={selected} 
+            >
               {photos[parseInt(props.day) - 1].map((photo:any,i:any)=> <div className={`h-[80vh] w-auto bg-transparent`} key={i}><img className="h-full object-scale-down" src={photo.source} /></div>)}
               </Carousel>
             }

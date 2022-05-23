@@ -10,6 +10,7 @@ import Card from "../components/Card";
 import Header from "../components/Carousel/Header";
 import {FaArrowLeft} from "react-icons/fa"
 import Map from "../components/Map";
+import Loader from "../components/Loader";
 
 const MediaQueryWithLoader = withLoader(MediaQuery)
 interface HomeProps {
@@ -25,7 +26,7 @@ const Home: FunctionComponent<HomeProps> = () => {
         await sleep(3000)
         setLoading(false)
     }
-    
+
     useEffect(()=>{
         loadAssets()
     },[])
@@ -44,7 +45,8 @@ const Home: FunctionComponent<HomeProps> = () => {
 
     return (
         <>
-        <MediaQueryWithLoader maxWidth={768} loading={loading} isMobile={true}>
+        {loading ? <Loader /> : null}
+        <MediaQuery maxWidth={768}>
             <div className='h-full'>
                 <div className={`${!overlay ? "hidden opacity-0 bg-transparent" : "block opacity-100 bg-slate-800"}  w-full min-h-screen p-5 z-50 animate-fadein`}>
                     <button className='flex bg-slate-600 text-white text-xl rounded-3xl py-2 px-4 mb-8' onClick={hideOverlay}><FaArrowLeft className='mt-1 mr-2' /> Back</button>
@@ -57,8 +59,8 @@ const Home: FunctionComponent<HomeProps> = () => {
                 </div>
                 <Carousel hideSticky={loading || overlay} onClick={showOverlay} selected={selected} setSelected={setSelected} />
             </div>
-        </MediaQueryWithLoader>
-        <MediaQueryWithLoader minWidth={768} loading={loading} isMobile={false} >
+        </MediaQuery>
+        <MediaQuery minWidth={768} >
             <div className='flex flex-col p-8 gap-8'>
                 <Indicators data={data} selected={selected} onClickIndicator={onClickIndicator} horizontal />
                 <div className='flex flex-row gap-8 h-[85vh]'>
@@ -76,7 +78,7 @@ const Home: FunctionComponent<HomeProps> = () => {
                     </div>
                 </div>
             </div>
-        </MediaQueryWithLoader>
+        </MediaQuery>
         </>
     );
 }

@@ -12,10 +12,10 @@ export default <P extends object>(
   loading,
   ...props
 }: WithLoadingProps) => (
-  <div className='relative overflow-hidden'>
+  <div className={`relative ${props.isMobile ? "h-full": ""}`}>
     {loading ? (
       <>
-      <Loader isMobile={props.isMobile} />
+      <Loader />
       </>
     ) : null}
     <Component {...(props as P)} />
