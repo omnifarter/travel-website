@@ -34,7 +34,11 @@ const Indicator = (props: IndicatorProps) => {
 const Indicators: FunctionComponent<IndicatorsProps> = (props:IndicatorsProps) => {
 
     return (
-        <div className={`flex ${props.horizontal ? "flex-row justify-around":"flex-col w-8 fixed left-6 top-6 "}  bg-slate-600/50 rounded-3xl  h-fit`}>
+        <div className={`flex ${props.horizontal ? "flex-row justify-around items-center font-bold":"flex-col w-8 fixed left-6 top-6 "}  bg-slate-600/50 rounded-3xl  h-fit`}>
+            {
+                props.horizontal &&
+                <p className='text-white/50 leading-none h-4'>Day</p>
+            }
             {
                 props.data.map(i => <Indicator key={i.abbr} {...i} onClickIndicator={props.onClickIndicator} isSelected={props.selected === i.abbr} horizontal={props.horizontal}/>)
             }

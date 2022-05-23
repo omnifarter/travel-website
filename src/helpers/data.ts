@@ -14,12 +14,28 @@ export const data = [
     {abbr:'13',full:'Italy and Nice', location:'https://goo.gl/maps/C7hrBmyamKcX79im7',locationQuery:'Nice France',description:"Today we headed to Nice, driving for over 11 hours through Italy. Taking detours to save on tolls backfired on us as the roads were closed, costing us over 4 hours. We stopped at Cuneo for lunch, stumbling upon a food fair! We had Argentinian barbequed meat and it was delicious. We also had Italian Gelato. It was simply divine, surpassing any gelato back in Singapore."}
     ]
 
-export const importImages = (day:string):any[] => {
-    let images:any[] = [];
+export const mapboxInitialViewState = {
+    latitude: 46.733917318226105,
+    longitude:2.5424071031964104,
+    zoom:5.394351247727393
+}
+export const geojson = {
+    features: [
+      {type: 'Feature', geometry: {type: 'Point', coordinates: [-122.4, 37.8]}}
+    ]
+  };
+  
+export const importImages = (days:number):any[] => {
+    let images:any[][] = [];
     let r = require.context(`../assets/images`, true)
-    let rFilter = r.keys().filter((value)=>value.toString().includes(`/day${day}/`))
-    //@ts-ignore
-    rFilter.map((item, index) => { images.push({source:r(item)}); });
+    for (let day = 0; day < days; day++) {
+        let rFilter = r.keys().filter((value)=>value.toString().includes(`/day${day + 1}/`))
+        let tempArray:any = []
+        //@ts-ignore
+        rFilter.map((item, index) => { tempArray.push({source:r(item)}); });
+        images.push(tempArray)
+    }
+    
     return images;
 }
  

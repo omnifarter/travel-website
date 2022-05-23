@@ -1,0 +1,215 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q3378513",
+        "place_name": "Cap Ferret",
+        "day":"6"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.248787,
+          44.645891
+        ],
+        "type": "Point"
+      },
+      "id": "36d54bae2cc9205b57e752459c42815e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q1540116",
+        "place_name":"Gouffre de Padirac",
+        "day":"8"
+      },
+      "geometry": {
+        "coordinates": [
+          1.750078,
+          44.858299
+        ],
+        "type": "Point"
+      },
+      "id": "db60c58510a4ac202f0aa942219136bc"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q33959",
+        "place_name": "Nice",
+        "day":"13"
+      },
+      "geometry": {
+        "coordinates": [
+          7.268391,
+          43.700936
+        ],
+        "type": "Point"
+      },
+      "id": "place.10531706062779340"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q41876",
+        "place_name": "Reims",
+        "day":"2"
+      },
+      "geometry": {
+        "coordinates": [
+          4.031926,
+          49.257789
+        ],
+        "type": "Point"
+      },
+      "id": "place.10951334419758340"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q42168",
+        "place_name": "Clermont-Ferrand",
+        "day":"9"
+      },
+      "geometry": {
+        "coordinates": [
+          3.081943,
+          45.777455
+        ],
+        "type": "Point"
+      },
+      "id": "place.12509674201371300"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "FR-75",
+        "wikidata": "Q90",
+        "place_name": "Paris",
+        "day":"1"
+      },
+      "geometry": {
+        "coordinates": [
+          2.35183,
+          48.85658
+        ],
+        "type": "Point"
+      },
+      "id": "place.14749210607497330"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "FR-75",
+        "wikidata": "Q90",
+        "place_name": "Paris",
+        "day":"3"
+      },
+      "geometry": {
+        "coordinates": [
+          2.35183,
+          48.85658
+        ],
+        "type": "Point"
+      },
+      "id": "place.14749210607497331"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q191460",
+        "place_name": "Arcachon",
+        "day":"7"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.175571,
+          44.653943
+        ],
+        "type": "Point"
+      },
+      "id": "place.4448503179520750"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q83236",
+        "place_name": "Chamonix-Mont-Blanc",
+        "day":"12"
+      },
+      "geometry": {
+        "coordinates": [
+          6.872751,
+          45.924671
+        ],
+        "type": "Point"
+      },
+      "id": "place.5807736168659680"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q50189",
+        "place_name": "Annecy",
+        "day":"10"
+      },
+      "geometry": {
+        "coordinates": [
+          6.128885,
+          45.899235
+        ],
+        "type": "Point"
+      },
+      "id": "place.6917504930332840"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q50189",
+        "place_name": "Annecy",
+        "day":"11"
+      },
+      "geometry": {
+        "coordinates": [
+          6.128885,
+          45.899235
+        ],
+        "type": "Point"
+      },
+      "id": "place.6917504930332841"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q1479",
+        "place_name": "Bordeaux",
+        "day":"5"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.580036,
+          44.841225
+        ],
+        "type": "Point"
+      },
+      "id": "place.7256626983811150"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "wikidata": "Q288",
+        "place_name": "Tours",
+        "day":"4"
+      },
+      "geometry": {
+        "coordinates": [
+          0.688927,
+          47.390047
+        ],
+        "type": "Point"
+      },
+      "id": "place.9004788565304830"
+    }
+  ],
+  "type": "FeatureCollection"
+}

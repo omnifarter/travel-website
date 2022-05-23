@@ -3,6 +3,7 @@ import Loader from '../components/Loader';
 
 interface WithLoadingProps {
   loading: boolean;
+  isMobile: boolean;
 }
 
 export default <P extends object>(
@@ -11,13 +12,13 @@ export default <P extends object>(
   loading,
   ...props
 }: WithLoadingProps) => (
-  <>
+  <div className='relative overflow-hidden'>
     {loading ? (
       <>
-      <Loader />
+      <Loader isMobile={props.isMobile} />
       </>
     ) : null}
     <Component {...(props as P)} />
-  </>
+  </div>
 );
 

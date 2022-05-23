@@ -9,6 +9,7 @@ import PhotoCollage from "../components/PhotoCollage";
 import Card from "../components/Card";
 import Header from "../components/Carousel/Header";
 import {FaArrowLeft} from "react-icons/fa"
+import Map from "../components/Map";
 
 const MediaQueryWithLoader = withLoader(MediaQuery)
 interface HomeProps {
@@ -24,13 +25,10 @@ const Home: FunctionComponent<HomeProps> = () => {
         await sleep(3000)
         setLoading(false)
     }
+    
     useEffect(()=>{
         loadAssets()
     },[])
-
-    useEffect(()=>{
-        console.log(selected)
-    },[selected])
 
 
     
@@ -46,7 +44,7 @@ const Home: FunctionComponent<HomeProps> = () => {
 
     return (
         <>
-        <MediaQueryWithLoader maxWidth={768} loading={loading}>
+        <MediaQueryWithLoader maxWidth={768} loading={loading} isMobile={true}>
             <div className='h-full'>
                 <div className={`${!overlay ? "hidden opacity-0 bg-transparent" : "block opacity-100 bg-slate-800"}  w-full min-h-screen p-5 z-50 animate-fadein`}>
                     <button className='flex bg-slate-600 text-white text-xl rounded-3xl py-2 px-4 mb-8' onClick={hideOverlay}><FaArrowLeft className='mt-1 mr-2' /> Back</button>
@@ -60,25 +58,23 @@ const Home: FunctionComponent<HomeProps> = () => {
                 <Carousel hideSticky={loading || overlay} onClick={showOverlay} selected={selected} setSelected={setSelected} />
             </div>
         </MediaQueryWithLoader>
-        <MediaQueryWithLoader minWidth={768} loading={loading}>
-            <div className='flex flex-col p-8'>
+        <MediaQueryWithLoader minWidth={768} loading={loading} isMobile={false} >
+            <div className='flex flex-col p-8 gap-8'>
                 <Indicators data={data} selected={selected} onClickIndicator={onClickIndicator} horizontal />
-                <div className='flex flex-row'>
-                <div className='flex flex-col w-1/2 mt-8'>
-                    <Card className='mb-8' >
-                        <h1 className='text-white text-3xl mb-4'>{data[parseInt(selected) -1].full}</h1>
-                        <h1 className='text-white text-lg'>{data[parseInt(selected) -1].description}</h1>
-                    </Card>
-                    <PhotoCollage day={selected} isMobile={false} />
+                <div className='flex flex-row gap-8 h-[85vh]'>
+                    <div className='flex flex-auto w-full'>
+                        <Map loading={loading} day={selected} />
+                    </div>
+                    <div className='flex flex-auto flex-col gap-8 w-full'>
+                        <Card className='flex-initial animate-fadein' >
+                            <h1 className='text-white text-3xl animate-fadein'>{data[parseInt(selected) -1].full}</h1>
+                            <h1 className='text-white text-lg animate-fadein'>{data[parseInt(selected) -1].description}</h1>
+                        </Card>
+                        <div className='flex flex-col flex-auto min-h-0'>
+                            <PhotoCollage day={selected} isMobile={false} />
+                        </div>
+                    </div>
                 </div>
-                <div className='flex w-1/2'>
-                    <iframe
-                    className='w-full h-full ml-8 mt-8 pb-8'
-                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDvchTjo4sE10PI_y074T5grDx-a9HCtKE&q=${data[parseInt(selected) -1].locationQuery}`}>
-                    </iframe>
-                </div>
-                </div>
-
             </div>
         </MediaQueryWithLoader>
         </>

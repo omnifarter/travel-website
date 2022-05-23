@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { useEffect } from "react";
 import { Carousel } from 'react-responsive-carousel';
-import { importImages } from "../../helpers/data";
+import { data, importImages } from "../../helpers/data";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Modal from 'react-modal';
 
@@ -14,9 +14,11 @@ import Modal from 'react-modal';
       const [photos, setPhotos] = useState<any[]>([])
       const [open, setOpen] = useState(false)
       const [selected, setSelected] = useState(0)
+
       useEffect(()=>{
-        setPhotos(importImages(props.day))
-      },[props.day])
+        setPhotos(importImages(data.length))
+        console.log(importImages(data.length))
+      },[])
 
       const requestClose = () => {
           setOpen(false)
@@ -28,25 +30,25 @@ import Modal from 'react-modal';
       }
       return (
           <>
-            <div className='w-full'>
-              <div className='flex flex-1'>
-                {photos.map((photo,i)=> i<2 && (
-                <div key={i} className='bg-black' onClick={()=>requestOpen(i)}>
-                    <img className="w-full h-full object-cover border-2" src={photo.source}/>
+            {photos.map((photoDay,i)=><div className={`${i == parseInt(props.day) - 1 ? "flex opacity-1" : "hidden opacity-0"} flex-col w-full flex-auto min-h-0 animate-fadein`}>
+              <div className='flex flex-auto min-h-0'>
+                {photoDay.map((photo:any,i:number)=> i<2 && (
+                <div key={i} className='flex bg-black min-h-0 flex-auto' onClick={()=>requestOpen(i)}>
+                    <img className={`w-full h-auto object-cover border-2 ${i==1 ? 'rounded-tr-lg' :'rounded-tl-lg'}`} src={photo.source}/>
                 </div>))}
               </div>
-              <div className='flex flex-1'>
-                {photos.map((photo,i)=> (i>1 && i<4) && (
-                <div key={i} className='bg-black' onClick={()=>requestOpen(i)}>
-                    <img className="w-full h-full object-cover border-2" src={photo.source} />
+              <div className='flex flex-auto min-h-0'>
+                {photoDay.map((photo:any,i:number)=> (i>1 && i<4) && (
+                <div key={i} className='flex bg-black min-h-0 flex-auto' onClick={()=>requestOpen(i)}>
+                    <img className={`w-full h-auto object-cover border-2 ${i==2 ? 'rounded-bl-lg' :''}`} src={photo.source} />
                 </div>))}
-                {photos.length >= 5 && (
-                <div className='bg-black relative border-2 text-white' onClick={()=>requestOpen(4)}>
-                    <img className="w-full h-full object-cover  brightness-50" src={photos[4].source} />
-                    <p className='text-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>+{photos.length-4}</p>
+                {photoDay.length >= 5 && (
+                <div className='flex bg-black relative min-h-0 flex-auto border-2 rounded-br-lg' onClick={()=>requestOpen(4)}>
+                    <img className="w-full h-auto object-cover brightness-50 rounded-br-lg" src={photoDay[4].source} />
+                    <p className='text-white text-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>+{photoDay.length-4}</p>
                 </div>)}
               </div>
-            </div>
+            </div>)}
             <Modal
                 closeTimeoutMS={200}
                 ariaHideApp={false}
@@ -64,12 +66,13 @@ import Modal from 'react-modal';
                     bottom: props.isMobile ? '16px' : '80px',              
                   },
                   overlay:{
-                    backgroundColor:'rgba(0, 0, 0, 0.5)'
+                    backgroundColor:'rgba(0, 0, 0, 0.5)',
+                    zIndex:10,
                   }
                 }}
             >
             {photos.length!=0 &&<Carousel showThumbs={false} showStatus={false} selectedItem={selected}>
-              {photos.map((photo,i)=> <div className={`h-[80vh] w-auto bg-transparent`} key={i}><img className="h-full object-scale-down" src={photo.source} /></div>)}
+              {photos[parseInt(props.day) - 1].map((photo:any,i:any)=> <div className={`h-[80vh] w-auto bg-transparent`} key={i}><img className="h-full object-scale-down" src={photo.source} /></div>)}
               </Carousel>
             }
             </Modal>
