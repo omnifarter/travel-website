@@ -23,7 +23,7 @@ const Home: FunctionComponent<HomeProps> = () => {
     const [selected, setSelected] = useState('1')
 
     const loadAssets = async () => {
-        await sleep(3000)
+        await sleep(4000)
         setLoading(false)
     }
 
