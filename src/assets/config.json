@@ -1,0 +1,319 @@
+{
+    "style": "mapbox://styles/branigan/cjz37rcb003ib1cr3s8rnkt2d",
+    "accessToken": "pk.eyJ1IjoibWJ4c29sdXRpb25zIiwiYSI6ImNrMm01aG9hdTBlZGwzbXQ1ZXVrNHNmejAifQ.QHQA0N6XPWddCXtvoODHZg",
+    "showMarkers": false,
+    "theme": "dark",
+    "use3dTerrain": true,
+    "title": "Gabriel's Travels",
+    "subtitle": "Where I have travelled to since 2018",
+    "chapters": [
+        {
+            "id": "summary",
+            "alignment": "full",
+            "title": "Summary",
+            "countries": 12,
+            "cities":1,
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        },
+        {
+            "id": "france",
+            "alignment": "full",
+            "title": "France Pre-Graduation Trip",
+            "days":13,
+            "date":"April 2022",
+            "image":"",
+            "places": ["Paris","Reims","Tours","Bordaeux","Arcachon","Dorgdogne Valley","Clermont-Ferrand","Annecy","Charmonix","Nice"],
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        },
+        {
+            "id": "hangzhou",
+            "alignment": "full",
+            "title": "Hangzhou Exchange Program",
+            "image":"",
+            "days":100,
+            "date":"May 2019",
+            "places": ["Hangzhou","Shanghai","Taizhou","Huzhou","Guilin","Zhangjiajie","Chengdu","Huangshan"],
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        },
+        {
+            "id": "taiwan-2018",
+            "alignment": "full",
+            "title": "Taiwan Family Trip",
+            "image":"",
+            "days":9,
+            "date":"Dec 2018",
+            "places": ["Taipei","Pingxi","Taroko Gorge","Hualien"],
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        },
+        {
+            "id": "tioman-2018",
+            "alignment": "full",
+            "title": "Tioman Diving Trip",
+            "image":"",
+            "days":3,
+            "date":"Aug 2018",
+            "places": ["Tioman","Pingxi","Taroko Gorge","Hualien"],
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        },
+        {
+            "id": "camaron-highland-2018",
+            "alignment": "full",
+            "title": "Cameron Highland Term Break Trip",
+            "image":"",
+            "days":3,
+            "date":"Jun 2018",
+            "places": ["Camaron Highlands"],
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        },
+        {
+            "id": "bali-2018",
+            "alignment": "full",
+            "title": "Bali 2018",
+            "image":"",
+            "days":3,
+            "date":"Apr 2018",
+            "places": ["Bali"],
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        },
+        {
+            "id": "australia-2018",
+            "alignment": "full",
+            "title": "Australia 2018",
+            "image":"",
+            "days":9,
+            "date":"Mar 2018",
+            "places": ["Sydney","Hunter's Valley","Ellenborough Falls","Port Macquarie","Coff's Harbour","Gold Coast","Brisbane"],
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        },
+        {
+            "id": "krabi-2018",
+            "alignment": "full",
+            "title": "Krabi ORD Trip 2018",
+            "image":"",
+            "days":6,
+            "date":"Mar 2018",
+            "places": ["Krabi","Ao Nang","Phi Phi Islands"],
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        },
+        {
+            "id": "krabi-2018",
+            "alignment": "full",
+            "title": "Krabi ORD Trip 2018",
+            "image":"",
+            "days":6,
+            "date":"Mar 2018",
+            "places": ["Krabi","Ao Nang","Phi Phi Islands"],
+            "location": {
+                "center": [-113.91666, 48.66451],
+                "zoom": 8,
+                "pitch": 0.00,
+                "bearing": 0.00
+            },
+            "onChapterEnter": [
+                {
+                    "layer": "gnpglaciers-1998",
+                    "opacity": 0.25
+                },
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0.25
+                }
+            ],
+            "onChapterExit": [
+                {
+                    "layer": "glaciernp-boundary",
+                    "opacity": 0
+                }
+            ]
+        }
+    ]
+}
