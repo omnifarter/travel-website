@@ -1,6 +1,6 @@
 import { url } from "inspector";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { data, importImages, importThumbnail } from "../../helpers/data";
+// import { importImages, importThumbnail } from "../../helpers/data";
 import Header from "./Header";
 import Indicators from "./Indicators";
 
@@ -9,6 +9,7 @@ interface CarouselProps {
     onClick():void
     selected:string
     setSelected(i:string):void
+    data: any[]
 }
  
 const Carousel: FunctionComponent<CarouselProps> = (props:CarouselProps) => {
@@ -18,7 +19,7 @@ const Carousel: FunctionComponent<CarouselProps> = (props:CarouselProps) => {
     const ref = useRef(null)
 
     useEffect(()=>{
-        setThumbnail(importThumbnail(props.selected))
+        // setThumbnail(importThumbnail(props.selected))
       },[])
 
     const onClickIndicator = (abbr:string) => {
@@ -29,7 +30,7 @@ const Carousel: FunctionComponent<CarouselProps> = (props:CarouselProps) => {
         let diff = evt.target.scrollHeight - evt.target.scrollTop
         if(diff % evt.target.clientHeight == 0){
             // fully scrolled
-            let index = data.length - (diff / evt.target.clientHeight)
+            let index = props.data.length - (diff / evt.target.clientHeight)
             props.setSelected((index + 1).toString())
         }
     }
@@ -42,12 +43,12 @@ const Carousel: FunctionComponent<CarouselProps> = (props:CarouselProps) => {
     return (        
         <div ref={ref} className="h-full snap-y snap-mandatory overflow-y-scroll snap-always scroll-smooth" onScroll={onScroll}>
         {
-            data.map((i,index)=>(
+            props.data.map((i,index)=>(
                 <section onClick={props.onClick} key={i.abbr} className={`bg-cover bg-center bg-no-repeat w-screen h-screen snap-start`} style={{backgroundImage:`url(${thumbnail[index]})`}} />
             ))
         }
-        {!props.hideSticky && <Header text={data[parseInt(props.selected) - 1].full} location={data[parseInt(props.selected) - 1].location} />}
-        {!props.hideSticky && <Indicators data={data} onClickIndicator={onClickIndicator} selected={props.selected} />}
+        {!props.hideSticky && <Header text={props.data[parseInt(props.selected) - 1].full} location={props.data[parseInt(props.selected) - 1].location} />}
+        {!props.hideSticky && <Indicators data={props.data} onClickIndicator={onClickIndicator} selected={props.selected} />}
         </div>
 );
 }

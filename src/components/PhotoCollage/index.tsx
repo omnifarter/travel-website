@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { useEffect } from "react";
 import { Carousel } from 'react-responsive-carousel';
-import { data, importImages } from "../../helpers/data";
+// import { importImages } from "../../helpers/data";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Modal from 'react-modal';
 import {IoMdClose} from "react-icons/io"
@@ -9,6 +9,7 @@ import {IoMdClose} from "react-icons/io"
   interface PhotoCollageProps {
       day:string
       isMobile:boolean
+      data: any[]
   }
    
   const PhotoCollage: FunctionComponent<PhotoCollageProps> = (props:PhotoCollageProps) => {
@@ -17,8 +18,8 @@ import {IoMdClose} from "react-icons/io"
       const [selected, setSelected] = useState(0)
 
       useEffect(()=>{
-        setPhotos(importImages(data.length))
-        console.log(importImages(data.length))
+        // setPhotos(importImages(props.data.length))
+        // console.log(importImages(props.data.length))
       },[])
 
       const requestClose = () => {

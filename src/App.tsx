@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className='bg-slate-800 bg-cover'>
+    <div className=' neutral-slate-100 bg-cover'>
       <Home />
     </div>
   );

@@ -54,7 +54,6 @@ const Map: FunctionComponent<MapProps> = (props:MapProps) => {
             <Mapbox
                 ref={mapbox}
                 initialViewState={mapboxInitialViewState}
-                style={{height:'100%', maxHeight:'100vh',borderRadius:'12px'}}
                 mapboxAccessToken={process.env.REACT_APP_MAPBOX_KEY}
                 mapStyle="mapbox://styles/omnifarter/cl3iglt3u000915pnnpr1s6ja"
                 onClick={onMapClick}
